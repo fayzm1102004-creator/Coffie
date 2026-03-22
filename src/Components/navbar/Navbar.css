@@ -1,0 +1,167 @@
+/* General Navbar Styling */
+.navbar {
+    background-color: transparent !important; /* Ensure transparent background */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030; /* Higher than Bootstrap's default z-index for fixed elements (1030) if needed */
+    padding: 1.5rem 1rem; /* Consistent padding for top/bottom and sides */
+    transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out; /* Smooth transitions */
+}
+
+/* Navbar background when scrolled (optional, but good for transparency) */
+/* You would need to add a class on scroll with JavaScript */
+.navbar.scrolled {
+    background-color: rgba(51, 33, 29, 0.95) !important; /* Example dark background on scroll */
+    padding: 0.8rem 1rem; /* Smaller padding when scrolled */
+}
+
+/* Container within Navbar - Custom Flexbox for Brand and Toggle/Collapse */
+.navbar .container-fluid {
+    display: flex;
+    justify-content: space-between; /* Distribute space between brand and toggle/nav */
+    align-items: center; /* Vertically align items */
+    padding-left: 15px; /* Default Bootstrap container padding */
+    padding-right: 15px;
+}
+
+/* Brand Styling */
+.navbar-brand {
+    color: white !important; /* Ensure brand text is white */
+    font-size: 2.8rem; /* Larger font size for brand */
+    font-weight: bold;
+    letter-spacing: 2px; /* Slightly spaced out letters */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #da9f5b !important; /* Highlight color on hover */
+}
+
+/* Navbar Toggler Button (Hamburger Icon) */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important; /* Lighter border for toggler */
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.75rem;
+}
+
+/* Toggler icon color (Bootstrap's default is dark, override for white) */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Navbar Collapse (the container for nav links) */
+.navbar-collapse {
+    /* On large screens, this will be horizontal */
+    flex-grow: 0; /* Prevents it from taking all available space next to brand */
+    justify-content: flex-end; /* Pushes nav links to the right */
+}
+
+/* Navigation Links */
+.navbar-nav .nav-link {
+    color: white !important; /* Ensure nav link text is white */
+    font-size: 1.25rem; /* Larger font size for links */
+    margin: 0 10px; /* Space between links */
+    transition: color 0.3s ease;
+    position: relative; /* For underline effect */
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active { /* Using .active for current page or on hover */
+    color: #da9f5b !important; /* Highlight color on hover/active */
+}
+
+/* Hover/Active Underline Effect (hv class) */
+.navbar-nav .nav-link.hv::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px; /* Position below the text */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #da9f5b; /* Underline color */
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link.hv:hover::after,
+.navbar-nav .nav-link.hv.active::after {
+    width: 70%; /* Expand width on hover/active */
+}
+
+
+/* --- Media Queries --- */
+
+/* Medium devices (tablets, 768px and up) - Bootstrap's 'lg' breakpoint is 992px */
+/* This media query covers between 768px and 991.98px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar {
+        padding: 1rem 0.8rem; /* Slightly less padding */
+    }
+    .navbar-brand {
+        font-size: 2.2rem; /* Slightly smaller brand on tablets */
+    }
+    .navbar-nav .nav-link {
+        font-size: 1.1rem; /* Slightly smaller nav links */
+        margin: 0 8px; /* Reduce margin */
+    }
+}
+
+
+/* Small devices (landscape phones, 576px and up) - Bootstrap's 'md' breakpoint is 768px */
+@media (max-width: 991.98px) { /* This covers everything below 'lg' breakpoint */
+    .navbar-collapse {
+        background-color: rgba(51, 33, 29, 0.95); /* Dark background for collapsed menu */
+        border-radius: 0.5rem;
+        margin-top: 10px; /* Space below brand/toggler */
+        padding: 15px; /* Internal padding for collapsed menu */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-nav {
+        width: 100%; /* Make nav links take full width in collapsed state */
+        text-align: center; /* Center align links */
+    }
+
+    .navbar-nav .nav-link {
+        margin: 10px 0; /* Stack links vertically with more spacing */
+        font-size: 1.1rem; /* Adjust font size for mobile */
+    }
+
+    /* Remove underline effect from collapsed menu items if preferred */
+    .navbar-nav .nav-link.hv::after {
+        display: none;
+    }
+    .navbar-nav .nav-link.hv:hover::after {
+        width: 0;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .navbar {
+        padding: 1rem 0.5rem; /* Even less padding */
+    }
+
+    .navbar-brand {
+        font-size: 2rem; /* Smaller brand on small phones */
+    }
+
+    /* Adjust padding for the fluid container to prevent content from touching edges */
+    .navbar .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Fine-tuning for very small screens if necessary */
+@media (max-width: 380px) {
+    .navbar-brand {
+        font-size: 1.8rem; /* Smallest brand size */
+    }
+    .navbar-toggler {
+        padding: 0.4rem 0.6rem; /* Smaller toggler button */
+    }
+}

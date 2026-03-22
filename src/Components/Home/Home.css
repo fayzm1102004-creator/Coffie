@@ -1,0 +1,501 @@
+/* General Styles */
+section {
+    background: #fffbf2;
+    padding-bottom: 100px;
+}
+
+.f-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    gap: 40px;
+}
+
+/* Section Title (After) */
+.after {
+    padding-top: 170px;
+    position: relative;
+    text-align: center; /* Ensure text is centered */
+}
+
+.after::after {
+    content: '';
+    width: 3px;
+    height: 110px;
+    background: orange;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%); /* Center the line precisely */
+    z-index: 3;
+}
+
+.after > :nth-child(1) {
+    color: orange;
+}
+
+.after > :nth-child(2) {
+    color: #33211d;
+    font-size: 60px;
+}
+
+/* About Us Section Specifics */
+.color-h2 {
+    color: #33211d;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.color-s {
+    color: black;
+}
+
+.color-p {
+    color: gray;
+}
+
+.btn-1 {
+    background: #33211d;
+    border: none;
+    outline: none;
+    padding: 10px 40px;
+    color: white;
+    transition: 0.5s all ease;
+}
+
+.btn-2 {
+    background: #da9f5b;
+    border: none;
+    outline: none;
+    padding: 10px 40px;
+    transition: 0.5s all ease;
+    color: #33211d; /* Ensure button text is visible */
+}
+
+.btn-1:hover {
+    background: #000000dd;
+}
+
+.btn-2:hover {
+    background: #6e4b00cc;
+}
+
+/* Services and Menu Sections Layout */
+.d-flex-ser {
+    width: 100%;
+    display: flex;
+    align-items: flex-start; /* Align items at the start for better card alignment */
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px; /* Consistent gap between items */
+}
+
+/* Adjustments for image menus (circular images) */
+.img-menu img {
+    width: 120px;
+    height: 120px; /* Fixed height for perfect circle */
+    margin-bottom: 25px; /* Adjust margin */
+    border-radius: 50%;
+    object-fit: cover; /* Ensure images fill the circle without distortion */
+}
+
+/* Discount Section (Background with Overlay & Input) */
+.position-relative.w-100 { /* Targeting the specific discount container */
+    margin-top: 50px; /* Add margin to separate from previous section */
+}
+
+.position-relative.w-100 > img { /* Targeting the main bg image within this section */
+    height: 500px;
+    object-fit: cover;
+}
+
+.position-relative.w-100 > div[style*="rgba(63, 45, 35, 0.81)"] { /* Dark overlay for discount section */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(63, 45, 35, 0.81);
+    z-index: 2;
+}
+
+.position-relative.w-100 img[src*="overlay-bottom.png"] { /* Bottom overlay for discount section */
+    position: absolute;
+    bottom: -10px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.position-relative.w-100 img[src*="overlay-top.png"] { /* Top overlay for discount section */
+    position: absolute;
+    top: -5px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.btn-3 {
+    background: #da9f5b;
+    color: black;
+    border-radius: 0 5px 5px 0; /* Match Bootstrap's default input group button border-radius */
+    border: none;
+    outline: none;
+    padding: 15px 30px;
+    height: 100%; /* Make button height consistent with input */
+}
+
+.carousel-caption { /* For discount section caption */
+    z-index: 4; /* Ensure it's above overlays */
+}
+
+/* Contact Us Section */
+.container.position-relative { /* Main container for Contact Us */
+    position: relative;
+    width: 75%;
+    margin: 50px auto;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Important for containing absolute children */
+    border-radius: 10px;
+}
+
+.container.position-relative > img[alt="contact"] { /* Background image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.contact-overlay-dark { /* Dark overlay behind content */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(63, 45, 35, 0.81);
+    z-index: 2;
+}
+
+.contact-overlay-bottom { /* Wave overlay at bottom */
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.contact-overlay-top { /* Wave overlay at top */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.d-flex-form { /* Container for text content and form */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering both horizontally and vertically */
+    width: 90%;
+    max-width: 1200px;
+    z-index: 4; /* Ensure text and form are on top */
+    color: white; /* Default text color for this section */
+}
+
+.d-flex-form > div {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+}
+
+.form {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    flex-grow: 1; /* Allow form to grow and take available space */
+}
+
+.form .input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.form .input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form .input:focus {
+    outline: none;
+    border-color: #FFC107;
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+.h1-form {
+    color: #FFC107;
+    font-size: 75px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.h2-form {
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.d-flex-form .color-p {
+    color: #e0e0e0;
+    text-align: left;
+}
+
+/* Clients (Testimonial) Section */
+.h2-client {
+    color: orange;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.d-flex-ser.gap-5.mt-5 { /* Specific targeting for client cards */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center cards horizontally */
+    gap: 30px; /* Space between cards */
+    width: 85%;
+    margin: auto;
+    margin-top: 50px !important; /* Override default Bootstrap margin */
+}
+
+.d-flex-ser.gap-5.mt-5 > div { /* Individual client card container */
+    flex-basis: 250px; /* Give a flexible base width */
+    max-width: 300px; /* Max width to prevent overstretching */
+    text-align: center; /* Center text within card */
+}
+
+.d-flex-ser.gap-5 .img-menu { /* Ensure image is centered in client card */
+    justify-content: center;
+    margin-bottom: 15px; /* Space below image */
+}
+
+.d-flex-ser.gap-5 .img-menu img { /* Client images */
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0; /* Remove extra bottom margin from img-menu rule */
+}
+
+.d-flex-ser.gap-5 .img-menu > div { /* Client name and profession */
+    margin-left: 15px; /* Space from image */
+    text-align: left; /* Align text next to image */
+}
+.d-flex-ser.gap-5 > div p {
+    text-align: center; /* Center testimonial text */
+}
+
+/* --- Media Queries for Responsive Design --- */
+
+@media (max-width: 1199.98px) {
+    .carousel-caption h1 {
+        font-size: 90px;
+    }
+
+    .f-container, .d-flex-ser {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px; /* Reduce gap for stacked elements */
+    }
+
+    .f-container > div, .d-flex-ser > div {
+        min-width: unset;
+        width: 90%;
+    }
+
+    .f-container .d-flex {
+        flex-direction: column;
+        text-align: center;
+        align-items: center; /* Center items in about section */
+    }
+    .f-container .d-flex img {
+        margin: 20px auto;
+    }
+    .f-container .color-s, .f-container .color-p {
+        text-align: center;
+    }
+
+    .d-flex-ser .d-flex { /* For services cards */
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 15px; /* Adjust gap for smaller cards */
+    }
+    .d-flex-ser img {
+        margin-bottom: 15px;
+    }
+
+    .img-menu .d-flex { /* For menu cards */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .img-menu img {
+        margin-bottom: 15px;
+    }
+
+    /* Contact Us section for smaller screens: stack elements vertically */
+    .container.position-relative {
+        height: auto;
+        padding-bottom: 50px;
+        width: 95%;
+    }
+
+    .d-flex-form {
+        position: relative; /* Change to relative positioning */
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .d-flex-form > div {
+        margin: 10px 0;
+        min-width: unset;
+        width: 100%;
+    }
+
+    .h1-form, .h2-form, .d-flex-form .color-p {
+        text-align: center;
+    }
+
+    /* Clients Section on smaller screens */
+    .d-flex-ser.gap-5.mt-5 {
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+    }
+    .d-flex-ser.gap-5.mt-5 > div {
+        width: 100%; /* Take full width on smaller screens */
+        max-width: unset;
+        display: flex; /* Use flexbox for inner layout of card */
+        flex-direction: column;
+        align-items: center;
+    }
+    .d-flex-ser.gap-5 .img-menu {
+        flex-direction: row; /* Keep image and text side-by-side */
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .d-flex-ser.gap-5 .img-menu > div {
+        text-align: left;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .carousel-caption h1 {
+        font-size: 70px;
+    }
+
+    .f-container, .d-flex-ser, .container {
+        padding: 15px;
+    }
+
+    .form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .carousel-caption h1 {
+        font-size: 50px;
+    }
+    .carousel-caption h2 {
+        font-size: 1.2rem;
+    }
+
+    .after h1 {
+        font-size: 2.5rem; /* Adjust general h1 size for smaller screens */
+    }
+    .after h3 {
+        font-size: 1.2rem; /* Adjust general h3 size for smaller screens */
+    }
+
+    .btn-1, .btn-2, .btn-3 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .d-flex-ser img {
+        width: 120px;
+    }
+
+    .h1-form {
+        font-size: 3rem !important;
+    }
+    .h2-form {
+        font-size: 1.8rem !important;
+    }
+
+    .d-flex-ser.gap-5 .img-menu > div { /* Re-align client name/profession */
+        text-align: center;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .fw-bold{
+
+        font-size: 50px
+    }
+    .carousel-caption h1 {
+        font-size: 35px;
+    }
+    .carousel-caption h2 {
+        font-size: 1rem;
+    }
+
+    .f-container img, .d-flex-ser img, .img-menu img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .h1-form {
+        font-size: 2rem !important;
+    }
+    .h2-form {
+        font-size: 1.2rem !important;
+    }
+    .d-flex-ser.gap-5 .img-menu {
+        flex-direction: column; /* Stack image and text vertically in client cards */
+    }
+    .d-flex-ser.gap-5 .img-menu > div {
+        margin-left: 0;
+        margin-top: 10px; /* Space between image and text */
+        text-align: center;
+    }
+}
